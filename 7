@@ -1,0 +1,24 @@
+def find_missing_number(arr):
+    # находим максимальный элемент
+    max_num = max(arr)
+
+    # создаём массив "подсчёта"
+    counts = [0] * max_num
+
+    # заполняем "подсчёт"
+    for num in arr:
+        counts[num - 1] += 1
+
+
+    # ищем пропущенное число
+    answer = 1
+    for count in counts:
+        if count == 0:
+            return answer
+        answer += 1
+
+    # если все числа присутствуют
+    return max_num + 1
+
+testArr = [7, -5, 4, 5, 0, 6]
+print(find_missing_number(testArr))
